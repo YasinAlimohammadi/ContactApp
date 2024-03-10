@@ -1,13 +1,13 @@
 import React from 'react';
 import ContactItem from './ContactItem';
-
+import styles from "./ContactList.module.css"
 
 const ContactsList = ({contacts, deleteHandler}) => {
     return (
-        <div>
+        <div className={styles.container}>
             <h3>Contact List</h3>
             {contacts.length ? (
-                <ul>
+                <ul className={styles.contacts}>
                     {contacts.map(contact =>
                         <ContactItem 
                             key={contact.id} 
@@ -15,7 +15,7 @@ const ContactsList = ({contacts, deleteHandler}) => {
                             deleteHandler={deleteHandler}
                         />)}
                 </ul>
-            ) : <p>No contacts yet!</p>}
+            ) : <p className={styles.message}>No contacts yet!</p>}
             
         </div>
     );
