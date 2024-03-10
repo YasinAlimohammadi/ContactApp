@@ -1,13 +1,22 @@
 import React from 'react';
+import ContactItem from './ContactItem';
 
-const ContactsList = ({contacts}) => {
-    console.log(contacts);
+
+const ContactsList = ({contacts, deleteHandler}) => {
     return (
         <div>
             <h3>Contact List</h3>
-            <ul>
-                {contacts.map(contact => <li key={contact.id}>{contact.name}</li>)}
-            </ul>
+            {contacts.length ? (
+                <ul>
+                    {contacts.map(contact =>
+                        <ContactItem 
+                            key={contact.id} 
+                            data={contact}
+                            deleteHandler={deleteHandler}
+                        />)}
+                </ul>
+            ) : <p>No contacts yet!</p>}
+            
         </div>
     );
 };
